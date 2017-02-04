@@ -21,8 +21,8 @@ public class Hero extends LivingThing {
         }
         return damage;
     }
-
     public int Hero_attack(int damage, LivingThing opponent) {
+
         System.out.printf("攻撃:1/呪文:2\nコマンドを入力してください。:");
         Scanner st = new Scanner(System.in);
         int attack_command = st.nextInt();
