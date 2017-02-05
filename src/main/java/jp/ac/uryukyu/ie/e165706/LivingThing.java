@@ -40,18 +40,17 @@ public  abstract class LivingThing {
         return  heal;
     }
     public  int mini_fire(int damage){
-        damage = (int)(Math.random() + 6 + Math.random() * 10 - 2);
+        damage = (int)( Math.random() * 10 + 5 );
         magicPoint -= 3;
         return damage;
     }
-
 
     public void attack(LivingThing opponent){
         if (dead == false) {
             int damage = (int) (Math.random()  * attack);
             System.out.printf("%sの攻撃！\n", name);
             damage = attack_option(damage,opponent);
-            opponent.wounded(damage);
+            opponent.wounded(damage,name);
         }
         else{
             dead = true;
@@ -67,10 +66,13 @@ public  abstract class LivingThing {
         magicPoint -= magicPoint;
         return damage;
     }
-    public void wounded(int damage){
+
+    public void wounded(int damage,String name){
         hitPoint -= damage;
+        name = getName();
         if( hitPoint <= 0 ) {
             dead = true;
+            System.out.printf("%sは倒れた!!\n",name);
         }
     }
 
