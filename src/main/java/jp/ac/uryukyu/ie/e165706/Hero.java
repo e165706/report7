@@ -8,7 +8,7 @@ public class Hero extends LivingThing {
 
     @Override
     public int attack_option(int damage, LivingThing opponent) {
-        System.out.println("戦う:1/逃げる:2\nコマンドを入力してください。:");
+        System.out.printf("戦う:1/逃げる:2\nコマンドを入力してください。:");
         Scanner sc = new Scanner(System.in);
         int command = sc.nextInt();
         if (command == 1) {
@@ -65,7 +65,7 @@ public class Hero extends LivingThing {
     public static void escape(String monster) {
         double value = Math.random() * 100;
          if (monster == "スライム") {
-            if (value >=70) {
+            if (value >=50) {
                 System.out.println("勇者は逃げ出した!!");
             } else {
                 System.out.println("勇者は逃げようとしたが,回り込まれてしまった!!");

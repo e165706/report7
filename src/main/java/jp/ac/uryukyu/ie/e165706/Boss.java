@@ -4,7 +4,6 @@ package jp.ac.uryukyu.ie.e165706;
 public class Boss extends LivingThing {
     public Boss(String name, int hitPoint, int attack, int magicPoint) {
         super(name, hitPoint, attack, magicPoint);// 必ず先頭で呼び出す
-
     }
 
     @Override
@@ -26,12 +25,7 @@ public class Boss extends LivingThing {
             Heal();
         }
         else{Magic_burst(damage);}
-
+        System.out.printf("残りHP%d:\n",opponent.getHitPoint());
         return damage;
-    }
-    public void battle_algorithm(int hitPoint){
-        if (hitPoint >= 10){
-
-        }
     }
 }

@@ -8,7 +8,7 @@ public class Main {
         System.out.printf("RPG(?)にようこそ!!\n主人公の名前を入力しください!!:");
         Scanner scan = new Scanner(System.in);
         String hero_name = scan.next();
-        Hero hero = new Hero(hero_name, 30, 5, 300);
+        Hero hero = new Hero(hero_name, 50, 5, 40);
         Enemy enemy = new Enemy("スライム", 15, 3, 0);
         Boss boss = new Boss("naltoma", 20, 5, 30);
         String Enemy_name = enemy.getName();

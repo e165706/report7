@@ -20,6 +20,7 @@ public class Enemy extends LivingThing{
                 System.out.printf("%sに%dのダメージを与えた！！\n", opponent.getName(), damage);
             }
         }
+        System.out.printf("残りHP%d:\n",opponent.getHitPoint());
         return damage;
     }
 }
