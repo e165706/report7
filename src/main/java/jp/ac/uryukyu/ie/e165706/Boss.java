@@ -25,7 +25,7 @@ public class Boss extends LivingThing {
             Heal();
         }
         else{Magic_burst(damage);}
-        System.out.printf("残りHP%d:\n",opponent.getHitPoint());
+        System.out.printf("残りHP%d\n",opponent.getHitPoint());
         return damage;
     }
 }

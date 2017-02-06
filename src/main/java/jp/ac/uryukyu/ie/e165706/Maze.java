@@ -11,13 +11,13 @@ class Maze {
     private List<String> strings = new ArrayList<String>();
     private String first_place;
     private String map_size;
-        /* 想定している例外が起きる箇所では、予め例外に対応した処理を記述する。
-            try{ 例外が起きる箇所 }
-            catch(想定してる例外){例外処理}
-            finally{例外の有無にかかわらず、最終的に実行させたい処理}
-         */
 
-
+    /*
+    * Maze()ではmap.txtを読み込みする
+    * try,catchを用いることでエラーにも対処(ここは前reportと変更なし)
+    * 主人公の初期位置とmapの大きさをそれぞれの変数に代入
+    * map.txtの1行目と2行目を削除
+    */
     Maze() {
         Scanner scanner;
         String filename = "./src/main/java/jp/ac/uryukyu/ie/e165706/map.txt";
@@ -26,7 +26,7 @@ class Maze {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 this.strings.add(line);
-            }
+        }
             scanner.close();
         } catch (FileNotFoundException e) {
             System.err.println(e.getMessage());
@@ -36,8 +36,11 @@ class Maze {
         map_size = this.strings.get(1);
         this.strings.remove(0);
         this.strings.remove(0);
-    }
 
+    }
+    /*
+    以下getter/setter
+    */
     String getStartPlace() {
         return first_place;
     }
@@ -46,8 +49,14 @@ class Maze {
         return map_size;
     }
 
-    List<String> getmap() {
+    public List<String> getmap() {
         return strings;
+    }
+
+    void getReturnMap() {
+        for (int i = 0; i < strings.size(); i++) {
+            System.out.println(strings.get(i));
+        }
     }
 
 }

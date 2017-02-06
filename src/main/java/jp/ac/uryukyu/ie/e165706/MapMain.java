@@ -5,14 +5,15 @@ public class MapMain {
     public static void main(String[] args) throws Exception {
         Maze maze = new Maze();
         Player player = new Player(maze.getStartPlace(), maze.getMapSize(), maze.getmap());
-        System.out.println(maze.getmap().get(3).substring(0, 1));
-        System.out.println("プレイヤーの初期位置: " + player.getPlayer_x() + "," + player.getPlayer_y());
         while (player.player_point() == false) {
-            player.left_go();
-            player.under_go();
-            player.right_go();
-            player.up_go();
+            System.out.println("以下がプレイヤーの現在位置とマップです");
+            System.out.println("現在位置:(横,縦)=("+player.getPlayer_x() + "," + player.getPlayer_y()+")");
+            maze.getReturnMap();
+            player.Moving();
         }
-        System.out.println(player.getWalk_count());
+        /*
+        主人公がゴールに着くとバトルが始まる
+         */
+    Main.main(args);
     }
 }

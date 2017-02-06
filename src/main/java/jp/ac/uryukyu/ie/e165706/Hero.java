@@ -16,7 +16,7 @@ public class Hero extends LivingThing {
         } else if (command == 2) {
             escape(opponent.getName());
         } else {
-            attack_option(damage, opponent);
+            attack_option(damage, opponent);//再帰
         }
         /*ホイミを唱えた際相手にダメージを与えてしまうバグ有*/
         return  damage;
