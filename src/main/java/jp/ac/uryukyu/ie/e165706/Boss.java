@@ -1,5 +1,5 @@
 package jp.ac.uryukyu.ie.e165706;
-//import java.util.Scanner;
+
 
 public class Boss extends LivingThing {
     public Boss(String name, int hitPoint, int attack, int magicPoint) {
@@ -10,6 +10,7 @@ public class Boss extends LivingThing {
     @Override
     public int attack_option(int damage, LivingThing opponent) {
         if (getHitPoint() >= 10) {
+            damage = report(damage);
             if (damage == 0) {
                 System.out.printf("%sの攻撃！...だが、%sは攻撃を回避した！\n", getName(), opponent.getName());
             } else {
@@ -18,13 +19,14 @@ public class Boss extends LivingThing {
                     damage = damage * 2;
                     System.out.printf("%sの攻撃！会心の一撃！！%sに%sのダメージを与えた！！\n", getName(), opponent.getName(), damage);
                 } else {
-                    System.out.printf("%sに%dのダメージを与えた！！\n", opponent.getName(), damage);
+                    System.out.printf("%sのレポート攻撃!!%sに%dのダメージを与えた！！\n" ,getName(),opponent.getName(),damage);
                 }
             }
         }else if(getHitPoint() >=6){
             Heal();
         }
-        else{Magic_burst();}
+        else{Magic_burst(damage);}
+
         return damage;
     }
     public void battle_algorithm(int hitPoint){

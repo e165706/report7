@@ -1,13 +1,18 @@
 package jp.ac.uryukyu.ie.e165706;
 
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Hero hero = new Hero("勇者", 30, 5, 30);
+        System.out.printf("RPG(?)にようこそ!!\n主人公の名前を入力しください!!:");
+        Scanner scan = new Scanner(System.in);
+        String hero_name = scan.next();
+        Hero hero = new Hero(hero_name, 30, 5, 300);
         Enemy enemy = new Enemy("スライム", 15, 3, 0);
-        Boss boss = new Boss("naltoma", 20, 4, 30);
+        Boss boss = new Boss("naltoma", 20, 5, 30);
         String Enemy_name = enemy.getName();
-        for (int i = 0; i <= 2; i++) {
+        for (int i = 0; i < 2; i++) {
             System.out.printf("%s vs. %s\n", hero.getName(), Enemy_name);
             int turn = 0;
             if (i == 0) {
@@ -22,7 +27,7 @@ public class Main {
                 while (hero.isDead() == false && boss.isDead() == false) {
                     turn++;
                     System.out.printf("%dターン目開始！\n", turn);
-                    hero.attack(enemy);
+                    hero.attack(boss);
                     boss.attack(hero);
                 }
             }

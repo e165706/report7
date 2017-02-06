@@ -15,14 +15,14 @@ public class Hero extends LivingThing {
             Hero_attack(damage, opponent);
         } else if (command == 2) {
             escape(opponent.getName());
-            return 0;
         } else {
             attack_option(damage, opponent);
         }
-        return damage;
+        /*ホイミを唱えた際相手にダメージを与えてしまうバグ有*/
+        return  damage;
     }
-    public int Hero_attack(int damage, LivingThing opponent) {
 
+    public int Hero_attack(int damage, LivingThing opponent) {
         System.out.printf("攻撃:1/呪文:2\nコマンドを入力してください。:");
         Scanner st = new Scanner(System.in);
         int attack_command = st.nextInt();
@@ -44,22 +44,23 @@ public class Hero extends LivingThing {
             Scanner St = new Scanner(System.in);
             int magic_command = St.nextInt();
             if (magic_command == 1) {
-                mini_fire(damage);
-                System.out.printf("残りMP:"+getMagicPoint());
+                damage = mini_fire(damage);
                 if (damage == 0) {
                     System.out.printf("%sはメラを唱えた!!...だが、%sは攻撃を回避した！\n", getName(), opponent.getName());
                 }else{
-                        System.out.printf("%sは%sに%dダメージを与えた!!",getName(),opponent.getName(),damage);
+                        System.out.printf("%sは%sに%dダメージを与えた!!\n",getName(),opponent.getName(),damage);
+                    System.out.printf("残りMP:%s\n",getMagicPoint());
                     }
             } else if (magic_command == 2) {
                 Heal();
-                System.out.printf("残りMP:"+getMagicPoint());
+                System.out.printf("残りMP:%s\n",getMagicPoint());
             } else {
                 Hero_attack(damage, opponent);
             }
         }
     return damage;
     }
+
 
     public static void escape(String monster) {
         double value = Math.random() * 100;
