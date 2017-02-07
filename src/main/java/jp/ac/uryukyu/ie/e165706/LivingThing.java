@@ -35,8 +35,7 @@ public  abstract class LivingThing {
     public void setName(String name) {
         this.name = name;
     }
-
-
+    
     public int getHitPoint() {
         return hitPoint;
     }
@@ -127,7 +126,7 @@ public  abstract class LivingThing {
 
     //以下bossのみが使うレポート攻撃メソッド
     public  int report(int damage){
-        damage = (int) (Math.floor(Math.random() * (15 - 5 + 1)) + 5);
+        damage = (int) (Math.floor(Math.random() * (10 - 5 + 1)) + 5);
         return damage;
     }
 
